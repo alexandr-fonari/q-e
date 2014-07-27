@@ -15,6 +15,7 @@ Added files:
   ./PW/examples/libpspio_example/si.out           (output without libpspio, ran as `mpirun -np 2 < si.in > si.out`)
   ./PW/examples/libpspio_example/si.libpspsio.out (output libpspio, ran as `mpirun -np 2 < si.in > si.out`)
   
+To see modifications go to: https://github.com/alexandr-fonari/qe-libpspio/compare/r330
 
 To check for the correctness, `vimdiff` outputs with and without libpspsio.
 
