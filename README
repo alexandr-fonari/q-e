@@ -6,9 +6,14 @@ Edited files:
   ./install/make.sys.in
   ./Modules/Makefile
   ./Modules/upf.f90
+  ./install/configure (using autoconf)
+
 
 Added files:
   ./Modules/read_ncpp_libpspio.f90
+  ./PW/examples/libpspio_example/si.in         (simple ground state with LDA)
+  ./PW/examples/libpspio_example/Si.pz-vbc.UPF (Si NCPP, UPF v1)
+  ./PW/examples/libpspio_example/si.out        (output without libpspio, ran as `mpirun -np 2 < si.in > si.out`)
 
 
 This is the distribution of the Quantum ESPRESSO suite of codes (ESPRESSO: 
