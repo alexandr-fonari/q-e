@@ -1,3 +1,10 @@
+Adding libpspio support.
+
+Edited files:
+  ./install/configure.ac (three places)
+  ./install/extlibs_makefile
+
+
 This is the distribution of the Quantum ESPRESSO suite of codes (ESPRESSO: 
 opEn-Source Package for Research in Electronic Structure, Simulation, 
 and Optimization), promoted by the IOM-DEMOCRITOS National Simulation Center 

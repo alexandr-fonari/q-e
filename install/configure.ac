@@ -119,6 +119,16 @@ AC_ARG_WITH(internal-lapack,
       use_internal_lapack=0
    fi],
    [use_internal_lapack=0])
+
+AC_ARG_WITH(libpspio,
+   [AS_HELP_STRING([--with-libpspio],
+       [compile with libpspio (default: no)])],
+    [if   test "$withval" = "yes" ; then
+      with_libpspio=1
+   else
+      with_libpspio=0
+   fi],
+   [with_libpspio=0])
 # -----------------------------
 # more options 
 # ----------------------------
@@ -1997,6 +2007,17 @@ fi
     
 echo setting SCALAPACK_LIBS... $scalapack_libs
 
+# preprocessing flag for libpspio (experimental)
+libpspio_switch="disabled"
+if test "$with_libpspio" -eq 1 ; then
+    try_dflags="$try_dflags -D__LIBPSPIO"
+    ld_libs="\$(TOPDIR)/libpspio/libpspio.a $ld_libs"
+    libpspio_switch="enabled"
+    echo
+    echo Will try to use libpspio for NC PPs __highly experimental__
+    echo
+fi
+
 # preprocessing flag for openmp (experimental)
 if test "$use_openmp" -eq 1 ; then try_dflags="$try_dflags -D__OPENMP" ; fi
 
@@ -2114,6 +2135,7 @@ AC_SUBST(fft_libs)
 AC_SUBST(mpi_libs)
 AC_SUBST(mass_libs)
 AC_SUBST(elpa_libs_switch)
+AC_SUBST(libpspio_switch)
 AC_SUBST(scalapack_libs)
 AC_SUBST(ar)
 AC_SUBST(arflags)

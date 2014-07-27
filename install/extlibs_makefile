@@ -78,7 +78,21 @@ libelpa_enabled:
 	if test ! -d ../ELPA; then \
 	( gzip -dc ../archive/ELPA-0.3.tar.gz |(cd ../; tar -xvf -)); fi
 	cd ../ELPA; $(MAKE)
-	
+
+# libpspio
+libpspio : libpspio_$(LIBPSPIO_SWITCH)
+
+libpspio_ : libpspio_disabled
+
+libpspio_disabled :
+	touch fake_libpspio.a
+	-rm fake_libpspio.a
+
+libpspio_enabled :
+	if test ! -d ../libpspio; then \
+	( gzip -dc ../archive/libpspio-0.1.tar.gz |(cd ../; tar -xvf -)); fi
+	cd ../libpspio; $(MAKE)
+
 ###################################
 # cleaning
 ###################################
@@ -95,6 +109,10 @@ elpa_clean:
 	if test -d ../ELPA; then (cd ../ELPA; $(MAKE) clean); fi
 elpa_veryclean:
 	if test -d ../ELPA; then (rm -R -f ../ELPA); fi
+libpspio_clean:
+	if test -d ../libpspio; then (cd ../libpspio; $(MAKE) clean); fi
+libpspio_veryclean:
+	if test -d ../libpspio; then (rm -R -f ../libpspio); fi
 iotk_clean:
 	if test -d ../S3DE; then (cd ../S3DE; $(MAKE) clean); fi
 	if test -e ../S3DE/iotk/src/iotk.x; then \
@@ -111,5 +129,5 @@ iotk_veryclean:
 	rm -f ../iotk
 
 # general cleaning
-clean: blas_clean lapack_clean elpa_clean iotk_clean
-veryclean: blas_veryclean lapack_veryclean elpa_veryclean iotk_veryclean
+clean: blas_clean lapack_clean elpa_clean libpspio_clean iotk_clean
+veryclean: blas_veryclean lapack_veryclean elpa_veryclean libpspio_veryclean iotk_veryclean
