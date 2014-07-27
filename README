@@ -1,3 +1,17 @@
+'Integration' version of the libpspio (code.launchpad.net/libpspio) with Quantum-ESPRESSO.
+
+Each branch represents a libpspio revision from launchpad repo.
+
+Curretn working branch is `r330`.
+
+To git clone use:
+
+  git clone -b r330 https://github.com/alexandr-fonari/qe-libpspio.git
+
+
+=======================
+
+
 This is the distribution of the Quantum ESPRESSO suite of codes (ESPRESSO: 
 opEn-Source Package for Research in Electronic Structure, Simulation, 
 and Optimization), promoted by the IOM-DEMOCRITOS National Simulation Center 
