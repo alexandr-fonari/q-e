@@ -3,7 +3,7 @@
 include ../make.sys
 
 # location of needed modules
-MODFLAGS= $(MOD_FLAG)../iotk/src $(MOD_FLAG)../ELPA/src $(MOD_FLAG).
+MODFLAGS= $(MOD_FLAG)../iotk/src $(MOD_FLAG)../ELPA/src $(MOD_FLAG)../libpspio/src $(MOD_FLAG).
 
 MODULES = \
 atom.o \
@@ -78,6 +78,7 @@ read_ncpp.o \
 read_pseudo.o \
 read_upf_v1.o \
 read_upf_v2.o \
+read_ncpp_libpspio.o \
 read_uspp.o \
 read_xml.o \
 read_xml_cards.o \

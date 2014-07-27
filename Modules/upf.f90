@@ -20,6 +20,10 @@
       USE read_upf_v1_module
       USE read_upf_v2_module
       !
+#if defined(__LIBPSPIO)
+      USE read_ncpp_libpspio_module
+#endif
+      !
       IMPLICIT NONE
       PUBLIC
       !PRIVATE
@@ -61,6 +65,12 @@ SUBROUTINE read_upf(upf, grid, ierr, unit, filename)             !
       open (unit = u, file = filename, status = 'old', form = &
       'formatted', iostat = ierr)
    IF(ierr>0) CALL errore('read_upf', 'Cannot open file: '//TRIM(filename),1)
+   !
+   ierr = 1
+#if defined(__LIBPSPIO)
+   CALL read_ncpp_libpspio( u, upf, grid, ierr )
+   IF(ierr==0) ierr=-1
+#endif
    !
    CALL read_upf_v2( u, upf, grid, ierr )
    !
