@@ -3,6 +3,12 @@ Adding libpspio support.
 Edited files:
   ./install/configure.ac (three places)
   ./install/extlibs_makefile
+  ./install/make.sys.in
+  ./Modules/Makefile
+  ./Modules/upf.f90
+
+Added files:
+  ./Modules/read_ncpp_libpspio.f90
 
 
 This is the distribution of the Quantum ESPRESSO suite of codes (ESPRESSO: 

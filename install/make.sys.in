@@ -117,6 +117,9 @@ LAPACK_LIBS    = @lapack_libs@
 LAPACK_LIBS_SWITCH = @lapack_libs_switch@
 
 ELPA_LIBS_SWITCH = @elpa_libs_switch@
+
+LIBPSPIO_SWITCH = @libpspio_switch@
+
 SCALAPACK_LIBS = @scalapack_libs@
 
 # nothing needed here if the the internal copy of FFTW is compiled
