@@ -106,7 +106,7 @@ all   : pwall cp ld1 upf tddfpt gwl xspectra
 # Auxiliary targets used by main targets:
 # compile modules, libraries, directory for binaries, etc
 ###########################################################
-mods : libiotk libelpa
+mods : libpspio libiotk libelpa
 	( cd Modules ; $(MAKE) TLDEPS= all || exit 1 )
 libs : mods
 	( cd clib ; $(MAKE) TLDEPS= all || exit 1 )
@@ -125,6 +125,9 @@ liblapack: touch-dummy
 	cd install ; $(MAKE) -f extlibs_makefile $@
 
 libelpa: touch-dummy
+	cd install ; $(MAKE) -f extlibs_makefile $@
+
+libpspio: touch-dummy
 	cd install ; $(MAKE) -f extlibs_makefile $@
 
 libiotk: touch-dummy
